@@ -18,7 +18,7 @@ namespace Assignment2
     {
         //Private instance variables==============================
 
-        private double _autoFinish = 0;
+        private double _autoFinish = 1000;
         private double _additionalItems= 0;
         private double _basePrice= 0;
         private double _tradeInPrice= 0;
@@ -46,13 +46,13 @@ namespace Assignment2
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BasePriceTextBox_TextChanged(object sender, EventArgs e)
+        private void BasePriceTextBox_MouseLeave(object sender, EventArgs e)
         {
             //see if input is a number
             if (double.TryParse(BasePriceTextBox.Text, out _basePrice))
             {
                 //if yes see if its 1000 or less
-                if (_basePrice > 1000)
+                if (_basePrice < 1000)
                 {
                     MessageBox.Show("Please enter a number over a $1000");
                 }
@@ -75,7 +75,7 @@ namespace Assignment2
         private void TradeTextBox_MouseCaptureChanged(object sender, EventArgs e)
         {
             //see if input is a number
-            if (double.TryParse(BasePriceTextBox.Text, out _tradeInPrice))
+            if (double.TryParse(TradeTextBox.Text, out _tradeInPrice))
             {
                 //if yes see if its less than 0
                 if (_tradeInPrice > 0)
@@ -108,7 +108,7 @@ namespace Assignment2
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _stereoCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void _stereoCheckBox_Click(object sender, EventArgs e)
         {
             //if checked add the cost to additional cost 
             if (StereoCheckBox.Checked)
@@ -125,7 +125,7 @@ namespace Assignment2
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _interiorCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void _interiorCheckBox_Click(object sender, EventArgs e)
         {
             //if checked add the cost to additional cost 
             if (InteriorCheckBox.Checked)
@@ -143,7 +143,7 @@ namespace Assignment2
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _navigationCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void _navigationCheckBox_CheckChanged(object sender, EventArgs e)
         {
             //if checked add the cost to additional cost 
             if (NavigationCheckBox.Checked)
@@ -184,6 +184,7 @@ namespace Assignment2
             AdditionalTextBox.Text = Convert.ToString(_autoFinish + _additionalItems);
         }
 
+
         /// <summary>
         /// this method does all the calculations and displays them when the calculate button is pushed 
         /// </summary>
@@ -191,7 +192,24 @@ namespace Assignment2
         /// <param name="e"></param>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+            if (NavigationCheckBox.Checked)
+            {
+                _additionalItems += 800;
+            }
+
+            if (InteriorCheckBox.Checked)
+            {
+                _additionalItems += 2500;
+            }
+
+            if (StereoCheckBox.Checked)
+            {
+                _additionalItems = 500;
+            }
+
             _additionalCost = _additionalItems + _autoFinish;
+
+            AdditionalTextBox.Text = Convert.ToString(_autoFinish + _additionalItems);
 
             //calculate subtotal and display it
             _subtotal = (_basePrice + _additionalCost) ;
@@ -236,10 +254,12 @@ namespace Assignment2
             _subtotal = 0;
             _amountDue = 0;
             _tax = 0;
-
+            _additionalCost = 0;
             //reset all checkboxes and radio buttons
 
-         
+            NavigationCheckBox.Checked = false;
+            InteriorCheckBox.Checked = false;
+            StereoCheckBox.Checked = false;
             StandardRadioButton.Checked = true;
         }
 

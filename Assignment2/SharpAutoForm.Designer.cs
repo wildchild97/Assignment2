@@ -57,9 +57,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AdditionalGroupBox = new System.Windows.Forms.GroupBox();
-            this.NavigationCheckBox = new System.Windows.Forms.CheckBox();
-            this.InteriorCheckBox = new System.Windows.Forms.CheckBox();
-            this.StereoCheckBox = new System.Windows.Forms.CheckBox();
             this.ExteriorGroupBox = new System.Windows.Forms.GroupBox();
             this.CustomRadioButton = new System.Windows.Forms.RadioButton();
             this.PearlizedRadioButton = new System.Windows.Forms.RadioButton();
@@ -68,6 +65,9 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.StereoCheckBox = new System.Windows.Forms.CheckBox();
+            this.InteriorCheckBox = new System.Windows.Forms.CheckBox();
+            this.NavigationCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.AdditionalGroupBox.SuspendLayout();
             this.ExteriorGroupBox.SuspendLayout();
@@ -92,7 +92,7 @@
             this.BasePriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.BasePriceTextBox.TabIndex = 0;
             this.BasePriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BasePriceTextBox.MouseCaptureChanged += new System.EventHandler(this.BasePriceTextBox_TextChanged);
+            //this.BasePriceTextBox.MouseCaptureChanged += new System.EventHandler(this.BasePriceTextBox_TextChanged);
             // 
             // BasePriceLabel
             // 
@@ -311,48 +311,12 @@
             this.AdditionalGroupBox.Controls.Add(this.NavigationCheckBox);
             this.AdditionalGroupBox.Controls.Add(this.InteriorCheckBox);
             this.AdditionalGroupBox.Controls.Add(this.StereoCheckBox);
-            this.AdditionalGroupBox.Location = new System.Drawing.Point(166, 70);
+            this.AdditionalGroupBox.Location = new System.Drawing.Point(197, 70);
             this.AdditionalGroupBox.Name = "AdditionalGroupBox";
             this.AdditionalGroupBox.Size = new System.Drawing.Size(133, 100);
             this.AdditionalGroupBox.TabIndex = 15;
             this.AdditionalGroupBox.TabStop = false;
             this.AdditionalGroupBox.Text = "Additional Items";
-            // 
-            // NavigationCheckBox
-            // 
-            this.NavigationCheckBox.AutoCheck = false;
-            this.NavigationCheckBox.AutoSize = true;
-            this.NavigationCheckBox.Location = new System.Drawing.Point(7, 76);
-            this.NavigationCheckBox.Name = "NavigationCheckBox";
-            this.NavigationCheckBox.Size = new System.Drawing.Size(125, 17);
-            this.NavigationCheckBox.TabIndex = 2;
-            this.NavigationCheckBox.Text = "Computer Navigation";
-            this.NavigationCheckBox.UseVisualStyleBackColor = true;
-            this.NavigationCheckBox.CheckedChanged += new System.EventHandler(this._navigationCheckBox_CheckedChanged);
-            // 
-            // InteriorCheckBox
-            // 
-            this.InteriorCheckBox.AutoCheck = false;
-            this.InteriorCheckBox.AutoSize = true;
-            this.InteriorCheckBox.Location = new System.Drawing.Point(7, 53);
-            this.InteriorCheckBox.Name = "InteriorCheckBox";
-            this.InteriorCheckBox.Size = new System.Drawing.Size(97, 17);
-            this.InteriorCheckBox.TabIndex = 1;
-            this.InteriorCheckBox.Text = "Leather Interior";
-            this.InteriorCheckBox.UseVisualStyleBackColor = true;
-            this.InteriorCheckBox.CheckedChanged += new System.EventHandler(this._interiorCheckBox_CheckedChanged);
-            // 
-            // StereoCheckBox
-            // 
-            this.StereoCheckBox.AutoCheck = false;
-            this.StereoCheckBox.AutoSize = true;
-            this.StereoCheckBox.Location = new System.Drawing.Point(7, 29);
-            this.StereoCheckBox.Name = "StereoCheckBox";
-            this.StereoCheckBox.Size = new System.Drawing.Size(94, 17);
-            this.StereoCheckBox.TabIndex = 0;
-            this.StereoCheckBox.Text = "Stereo System";
-            this.StereoCheckBox.UseVisualStyleBackColor = true;
-            this.StereoCheckBox.CheckedChanged += new System.EventHandler(this._stereoCheckBox_CheckedChanged);
             // 
             // ExteriorGroupBox
             // 
@@ -431,6 +395,36 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // StereoCheckBox
+            // 
+            this.StereoCheckBox.AutoSize = true;
+            this.StereoCheckBox.Location = new System.Drawing.Point(7, 30);
+            this.StereoCheckBox.Name = "StereoCheckBox";
+            this.StereoCheckBox.Size = new System.Drawing.Size(94, 17);
+            this.StereoCheckBox.TabIndex = 3;
+            this.StereoCheckBox.Text = "Stereo System";
+            this.StereoCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // InteriorCheckBox
+            // 
+            this.InteriorCheckBox.AutoSize = true;
+            this.InteriorCheckBox.Location = new System.Drawing.Point(7, 53);
+            this.InteriorCheckBox.Name = "InteriorCheckBox";
+            this.InteriorCheckBox.Size = new System.Drawing.Size(97, 17);
+            this.InteriorCheckBox.TabIndex = 4;
+            this.InteriorCheckBox.Text = "Leather Interior";
+            this.InteriorCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // NavigationCheckBox
+            // 
+            this.NavigationCheckBox.AutoSize = true;
+            this.NavigationCheckBox.Location = new System.Drawing.Point(7, 77);
+            this.NavigationCheckBox.Name = "NavigationCheckBox";
+            this.NavigationCheckBox.Size = new System.Drawing.Size(125, 17);
+            this.NavigationCheckBox.TabIndex = 5;
+            this.NavigationCheckBox.Text = "Computer Navigation";
+            this.NavigationCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SharpAutoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,9 +488,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.GroupBox AdditionalGroupBox;
-        private System.Windows.Forms.CheckBox NavigationCheckBox;
-        private System.Windows.Forms.CheckBox InteriorCheckBox;
-        private System.Windows.Forms.CheckBox StereoCheckBox;
         private System.Windows.Forms.GroupBox ExteriorGroupBox;
         private System.Windows.Forms.RadioButton CustomRadioButton;
         private System.Windows.Forms.RadioButton PearlizedRadioButton;
@@ -516,7 +507,9 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.FontDialog SharpAutoFontDialog;
+        private System.Windows.Forms.CheckBox InteriorCheckBox;
+        private System.Windows.Forms.CheckBox StereoCheckBox;
+        private System.Windows.Forms.CheckBox NavigationCheckBox;
     }
 }
 
