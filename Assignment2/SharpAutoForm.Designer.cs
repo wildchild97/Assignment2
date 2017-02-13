@@ -78,20 +78,21 @@
             // 
             this.TradeTextBox.Location = new System.Drawing.Point(114, 318);
             this.TradeTextBox.Name = "TradeTextBox";
+            this.TradeTextBox.ShortcutsEnabled = false;
             this.TradeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.TradeTextBox.TabIndex = 0;
+            this.TradeTextBox.TabIndex = 1;
             this.TradeTextBox.Text = "0";
             this.TradeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TradeTextBox.TextChanged += new System.EventHandler(this.TradeTextBox_TextChanged);
+            this.TradeTextBox.MouseCaptureChanged += new System.EventHandler(this.TradeTextBox_MouseCaptureChanged);
             // 
             // BasePriceTextBox
             // 
             this.BasePriceTextBox.Location = new System.Drawing.Point(114, 40);
             this.BasePriceTextBox.Name = "BasePriceTextBox";
             this.BasePriceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.BasePriceTextBox.TabIndex = 1;
+            this.BasePriceTextBox.TabIndex = 0;
             this.BasePriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BasePriceTextBox.TextChanged += new System.EventHandler(this.BasePriceTextBox_TextChanged);
+            this.BasePriceTextBox.MouseCaptureChanged += new System.EventHandler(this.BasePriceTextBox_TextChanged);
             // 
             // BasePriceLabel
             // 
@@ -127,6 +128,7 @@
             this.AdditionalTextBox.ReadOnly = true;
             this.AdditionalTextBox.Size = new System.Drawing.Size(100, 20);
             this.AdditionalTextBox.TabIndex = 5;
+            this.AdditionalTextBox.Text = "1000";
             this.AdditionalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TaxTextBox
@@ -226,13 +228,13 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(89, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(126, 6);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
             this.exitToolStripMenuItem1.Text = "E&xit";
             // 
             // editToolStripMenuItem1
@@ -265,7 +267,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(158, 6);
             // 
             // fontToolStripMenuItem
             // 
@@ -294,7 +296,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(155, 6);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -454,8 +456,12 @@
             this.Controls.Add(this.BasePriceTextBox);
             this.Controls.Add(this.TradeTextBox);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SharpAutoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SharpAutoForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

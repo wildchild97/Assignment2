@@ -6,8 +6,8 @@ using System.Windows.Forms;
 
 //Program Name: Sharp Auto Form     Date Last Modified: February 12th
 //Name: Caitlin Foster              student#: 200311158
-//This program will allow a user to customize a car order
-//February 5th the GUI was created
+//This program will allow a user to calcuylate a customized a car order
+
 
 namespace Assignment2
 {
