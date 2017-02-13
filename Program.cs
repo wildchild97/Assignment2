@@ -4,11 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Program Name: Sharp Auto Form     Date Last Modified: February 12th
-//Name: Caitlin Foster              student#: 200311158
-//This program will allow a user to customize a car order
-//February 5th the GUI was created
-
 namespace Assignment2
 {
     static class Program
