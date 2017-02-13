@@ -26,8 +26,7 @@ namespace Assignment2
         private double _subtotal = 0;
         private double _amountDue = 0;
         private double _tax =0;
-        private double _additionalCost = 0;
-
+  
         //CONSTRUCTOR=============================================
         public SharpAutoForm()
         {
@@ -42,58 +41,6 @@ namespace Assignment2
         //EVENT HANDLERS++++++++++++++++++++++++++++++++++++++++
 
         /// <summary>
-        /// this method validates the user input for base price
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BasePriceTextBox_MouseLeave(object sender, EventArgs e)
-        {
-            //see if input is a number
-            if (double.TryParse(BasePriceTextBox.Text, out _basePrice))
-            {
-                //if yes see if its 1000 or less
-                if (_basePrice < 1000)
-                {
-                    MessageBox.Show("Please enter a number over a $1000");
-                }
-
-            }
-
-            else
-            {
-                //if no ask user for a number and clear the textbox
-                MessageBox.Show("Please enter a number");
-                BasePriceTextBox.Text = "";
-            }
-        }
-
-        /// <summary>
-        /// this method validates the user input for trade in allowance
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TradeTextBox_MouseCaptureChanged(object sender, EventArgs e)
-        {
-            //see if input is a number
-            if (double.TryParse(TradeTextBox.Text, out _tradeInPrice))
-            {
-                //if yes see if its less than 0
-                if (_tradeInPrice > 0)
-                {
-                    MessageBox.Show("Please enter a number of 0 or greater");
-                }
-
-            }
-
-            else
-            {
-                //if no ask user for a number
-                MessageBox.Show("Please enter a number");
-                TradeTextBox.Text = "";
-            }
-        }
-
-        /// <summary>
         /// This method gives the user a brief description about the program when the toolstrip item about is clicked
         /// </summary>
         /// <param name="sender"></param>
@@ -101,59 +48,6 @@ namespace Assignment2
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This program allows a user to calculate the amount due on their customizable vehicle");
-        }
-
-        /// <summary>
-        /// this method checks to see if the stereo checkbox is checked  
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void _stereoCheckBox_Click(object sender, EventArgs e)
-        {
-            //if checked add the cost to additional cost 
-            if (StereoCheckBox.Checked)
-            {
-                _additionalItems = 500;
-            }
-         
-            //update additional options textbox with new additional cost
-            AdditionalTextBox.Text = Convert.ToString(_additionalItems + _autoFinish);
-        }
-
-        /// <summary>
-        /// this method checks to see if the interior checkbox is checked  
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void _interiorCheckBox_Click(object sender, EventArgs e)
-        {
-            //if checked add the cost to additional cost 
-            if (InteriorCheckBox.Checked)
-            {
-                _additionalItems += 2500;
-            }
-      
-
-            //update additional options textbox with new additional cost
-            AdditionalTextBox.Text = Convert.ToString(_additionalItems + _autoFinish);
-        }
-
-        /// <summary>
-        /// this method checks to see if the navigation checkbox is checked  
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void _navigationCheckBox_CheckChanged(object sender, EventArgs e)
-        {
-            //if checked add the cost to additional cost 
-            if (NavigationCheckBox.Checked)
-            {
-                _additionalItems += 800;
-            }
-           
-
-            //update additional options textbox with new additional cost
-            AdditionalTextBox.Text = Convert.ToString(_additionalItems + _autoFinish);
         }
 
         /// <summary>
@@ -192,6 +86,25 @@ namespace Assignment2
         /// <param name="e"></param>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+            //validate the users input for base price
+            if (double.TryParse(BasePriceTextBox.Text, out _basePrice))
+            {
+                //if yes see if its 1000 or less
+                if (_basePrice < 1000)
+                {
+                    MessageBox.Show("Please enter a number over a $1000");
+                }
+
+            }
+
+            else
+            {
+                //if no ask user for a number and clear the textbox
+                MessageBox.Show("Please enter a number");
+                BasePriceTextBox.Text = "";
+            }
+
+            //see if check boxes checked and add additional costs where applicable
             if (NavigationCheckBox.Checked)
             {
                 _additionalItems += 800;
@@ -207,12 +120,29 @@ namespace Assignment2
                 _additionalItems = 500;
             }
 
-            _additionalCost = _additionalItems + _autoFinish;
+            //validate users input for trad in allowance
+            if (double.TryParse(TradeTextBox.Text, out _tradeInPrice))
+            {
+                //if yes see if its less than 0
+                if (_tradeInPrice > 0)
+                {
+                    MessageBox.Show("Please enter a number of 0 or greater");
+                }
+
+            }
+
+            else
+            {
+                //if no ask user for a number
+                MessageBox.Show("Please enter a number");
+                TradeTextBox.Text = "";
+            }
+
 
             AdditionalTextBox.Text = Convert.ToString(_autoFinish + _additionalItems);
 
             //calculate subtotal and display it
-            _subtotal = (_basePrice + _additionalCost) ;
+            _subtotal = (_basePrice + _autoFinish + _additionalItems) ;
             SubTotalTextBox.Text = Convert.ToString(_subtotal);
 
             //calculate tax and display it
@@ -238,7 +168,7 @@ namespace Assignment2
         {
             //clear all text boxes
             BasePriceTextBox.Text = "";
-            AdditionalTextBox.Text = "";
+            AdditionalTextBox.Text = "1000";
             SubTotalTextBox.Text = "";
             TaxTextBox.Text = "";
             TotalTextBox.Text = "";
@@ -254,7 +184,7 @@ namespace Assignment2
             _subtotal = 0;
             _amountDue = 0;
             _tax = 0;
-            _additionalCost = 0;
+            
             //reset all checkboxes and radio buttons
 
             NavigationCheckBox.Checked = false;

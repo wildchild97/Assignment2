@@ -83,7 +83,7 @@
             this.TradeTextBox.TabIndex = 1;
             this.TradeTextBox.Text = "0";
             this.TradeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TradeTextBox.MouseCaptureChanged += new System.EventHandler(this.TradeTextBox_MouseCaptureChanged);
+            //this.TradeTextBox.MouseCaptureChanged += new System.EventHandler(this.TradeTextBox_MouseCaptureChanged);
             // 
             // BasePriceTextBox
             // 
